@@ -210,6 +210,8 @@ create FragmentStateAdapter
         }
 
 in mainactivity you create tabLayout and viewPage in xml file then in code you implements as below  
+
+
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.viewpager);
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
