@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <com.myapp.mylibrary.button.CustomButton1
+            android:layout_marginTop="20dp"
+            android:id="@+id/bt1"
+            android:layout_width="300dp"
+            android:text="CustomButton1"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="70dp"/>
+
+        <com.myapp.mylibrary.views.AutoHideButtonFloat
+            android:layout_marginTop="10dp"
+            android:id="@+id/bt2"
+            android:layout_width="100dp"
+            android:layout_gravity="center_horizontal"
+            android:text="AutoHideButtonFloat"
+            android:layout_height="100dp"/>
+
+        <com.myapp.mylibrary.views.ButtonFloat
+            android:layout_marginTop="10dp"
+            android:pointerIcon="alias"
+            android:id="@+id/bt3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <com.myapp.mylibrary.views.ButtonFloatSmall
+            android:layout_marginTop="10dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/bt4"
+
+            />
+        <!--<com.myapp.mylibrary.views.ButtonIcon
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/bt5"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <com.myapp.mylibrary.views.ButtonRectangle
+            android:id="@+id/bt6"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            />
+
+        <com.myapp.mylibrary.views.Card
+            android:id="@+id/card"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            />-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <com.myapp.mylibrary.views.CheckBox
+                    android:id="@+id/cb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="custom checkbox"
+                    android:layout_gravity="center"
+                    />
+
+            </LinearLayout>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="normal checkbox"/>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/cb2"
+                android:layout_marginLeft="50dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.myapp.mylibrary.views.Switch
+            android:id="@+id/sw1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw2"
+            android:layout_marginLeft="50dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+    </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
