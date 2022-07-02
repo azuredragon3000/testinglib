@@ -7,7 +7,15 @@ to create Recycle view we have a Adapter
   onCreateViewHolder inflater item.xml from adapter  
   onBindViewHolder use holder to show data from item.xml  
   ViewHolder internal class to initial holder  
-  
+### set up recycle view  
+
+    recyclerView = findViewById(R.id.rc);
+    MenuAdapter myAdapter = new MenuAdapter(arrayList);
+    recyclerView.setAdapter(myAdapter);
+    LinearLayoutManager linearLayout = new LinearLayoutManager(this);
+    recyclerView.setLayoutManager(linearLayout);  
+    
+    
 ## login app
   we have some edittext for login purpose  
   we have some edittext for resigter purpose  
