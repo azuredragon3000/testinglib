@@ -2,7 +2,6 @@
 
 ## menu
 ### menu layout
-
     <?xml version="1.0" encoding="utf-8"?>
     <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -18,7 +17,7 @@
 
 we have 2 kind of menu
 ### popup menu
-
+![Alt Text](https://github.com/azuredragon3000/testinglib/blob/master/image/menu.gif)
 call popup menu in view listener  
 
     private void showPopup(View v) {
@@ -170,6 +169,7 @@ to create Recycle view we have a Adapter
   
   
 ## viewpage 2
+![Alt Text](https://github.com/azuredragon3000/testinglib/blob/master/image/viewpage2.gif)
 if you want to switch between 2 fragment using tab, viewpage2 is the best choose  
 how to do it ?  
 create FragmentStateAdapter
@@ -228,6 +228,8 @@ in mainactivity you create tabLayout and viewPage in xml file then in code you i
 
 ## animate and change theme
 this is special source help you animate ball button  
+![Alt Text](https://github.com/azuredragon3000/testinglib/blob/master/image/theme.gif)
+
 layout  
 
         <?xml version="1.0" encoding="utf-8"?>
