@@ -22,6 +22,7 @@ to create Recycle view we have a Adapter
   get instance ( we cant initialise this object, its should be singleton pattern
   
   create user with firebase  
+  
       mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(
       new OnCompleteListener<AuthResult>() {
                     @Override
