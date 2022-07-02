@@ -2,7 +2,6 @@
 
 ## menu
 ### menu layout
-
     <?xml version="1.0" encoding="utf-8"?>
     <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -18,7 +17,7 @@
 
 we have 2 kind of menu
 ### popup menu
-
+![Alt Text](https://github.com/azuredragon3000/testinglib/blob/master/image/menu.gif)
 call popup menu in view listener  
 
     private void showPopup(View v) {
@@ -170,6 +169,7 @@ to create Recycle view we have a Adapter
   
   
 ## viewpage 2
+![Alt Text](https://github.com/azuredragon3000/testinglib/blob/master/image/viewpage2.gif)
 if you want to switch between 2 fragment using tab, viewpage2 is the best choose  
 how to do it ?  
 create FragmentStateAdapter
@@ -228,6 +228,8 @@ in mainactivity you create tabLayout and viewPage in xml file then in code you i
 
 ## animate and change theme
 this is special source help you animate ball button  
+![Alt Text](https://github.com/azuredragon3000/testinglib/blob/master/image/theme.gif)
+
 layout  
 
         <?xml version="1.0" encoding="utf-8"?>
@@ -481,5 +483,94 @@ source
 
 
 ## asyn task + progressbar
+
+if you want to perfrom task in background and use progressbar to show the status please implement as below  
+currently doInBackground is deprecated but i will update later  
+
+insert progressbar in layout, but set it as invisible  
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:wheel="http://schemas.android.com/apk/res-auto"
+            android:orientation="vertical"
+            tools:context=".MenuActivity">
+            
+            <com.pnikosis.materialishprogress.ProgressWheel
+                android:id="@+id/progress"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                wheel:matProg_barColor="@color/bright_blue"
+                wheel:matProg_progressIndeterminate="true"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="20dp"
+                android:id="@+id/rc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+source  
+
+        private RecyclerView recyclerView;
+        protected ArrayList<String> arrayList;
+        private ProgressWheel progressWheel;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_menu);
+            arrayList = new ArrayList<>();
+
+            progressWheel = findViewById(R.id.progress);
+            recyclerView = findViewById(R.id.rc);
+
+            LinearLayoutManager linearLayout = new LinearLayoutManager(this);
+            recyclerView.setLayoutManager(linearLayout);
+
+            TextView tv = findViewById(R.id.tv);
+            tv.setOnClickListener(v->{
+                showPopup(tv);
+            });
+
+            progressWheel.setVisibility(View.VISIBLE);
+            new backgroundTask().execute();
+        }
+
+        class backgroundTask extends AsyncTask<Void,String,Void> {
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                arrayList = new ArrayList<>();
+                for(int i=0;i<10000;i++){
+                    arrayList.add("this is item #"+i);
+                    publishProgress(Double.toString((i*100)/5000));
+                }
+                return null;
+            }
+
+            @Override
+            protected void onProgressUpdate(String... values) {
+                super.onProgressUpdate(values);
+                progressWheel.setProgress(Float.parseFloat(values[0]));
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                MenuAdapter myAdapter = new MenuAdapter(arrayList);
+                recyclerView.setAdapter(myAdapter);
+                progressWheel.setVisibility(View.GONE);
+            }
+        }
+
+remember import this import com.pnikosis.materialishprogress.ProgressWheel;  
+in gradle implementation 'com.pnikosis:materialish-progress:1.7'  
 
 
