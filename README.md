@@ -1,5 +1,76 @@
 # testinglib
 
+## menu
+### menu layout
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item android:id="@+id/new_game"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="new game"
+            app:showAsAction="ifRoom"
+            />
+        <item android:id="@+id/help"
+            android:icon="@drawable/ic_launcher_background"
+            android:title="help"/>
+    </menu>
+
+we have 2 kind of menu
+### popup menu
+
+call popup menu in view listener  
+
+    private void showPopup(View v) {
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.setOnMenuItemClickListener(this);
+            popup.inflate(R.menu.menu_example);
+            popup.show();
+            ;
+        } 
+        
+        
+### option menu
+
+    @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu_example,menu);
+            return true;
+        }
+### implement listener for those menu
+for popup menu we implement PopupMenu.OnMenuItemClickListener in activity  
+
+    @SuppressLint({"NonConstantResourceId", "ShowToast"})
+        @Override
+        public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()){
+                case R.id.new_game:
+                    Toast.makeText(this,"new game",Toast.LENGTH_LONG).show();
+                    return true;
+                case R.id.help:
+                    Toast.makeText(this,"help",Toast.LENGTH_LONG).show();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }
+        @Override
+        public boolean onMenuItemClick(MenuItem menuItem) {
+            switch (menuItem.getItemId()) {
+                case R.id.new_game:
+                    Toast.makeText(this,"new game",Toast.LENGTH_LONG).show();
+                   // archive(item);
+                    return true;
+                case R.id.help:
+                    Toast.makeText(this,"help",Toast.LENGTH_LONG).show();
+                   // delete(item);
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
 ## recycle view
 to create Recycle view we have a Adapter  
 ### Adapter
