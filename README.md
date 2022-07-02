@@ -171,7 +171,7 @@ to create Recycle view we have a Adapter
   
 ## viewpage 2
 
-## fire base
+## animate and change theme
 
 ## asyn task + progressbar
 
