@@ -78,6 +78,35 @@ to create Recycle view we have a Adapter
   onCreateViewHolder inflater item.xml from adapter  
   onBindViewHolder use holder to show data from item.xml  
   ViewHolder internal class to initial holder  
+  getItemCount for adapter
+  
+          ArrayList<String> arrayList;
+            public MenuAdapter(ArrayList<String> arrayList){
+                    this.arrayList = arrayList;
+            }
+            @NonNull
+            @Override
+            public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item,parent,false);
+                return new ViewHolder(view);
+            }
+            @Override
+            public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+                String t= arrayList.get(position);
+                holder.tv.setText(t);
+            }
+            @Override
+            public int getItemCount() {
+                return arrayList.size();
+            }
+            public static class ViewHolder extends RecyclerView.ViewHolder{
+                TextView tv;
+                public ViewHolder(@NonNull View itemView) {
+                    super(itemView);
+                    tv = itemView.findViewById(R.id.item_tv);
+                }
+            }
+
 ### set up recycle view  
 
     recyclerView = findViewById(R.id.rc);
