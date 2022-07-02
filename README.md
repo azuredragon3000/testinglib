@@ -170,6 +170,59 @@ to create Recycle view we have a Adapter
   
   
 ## viewpage 2
+if you want to switch between 2 fragment using tab, viewpage2 is the best choose  
+how to do it ?  
+create FragmentStateAdapter
+
+        public class LoginAdapter extends FragmentStateAdapter {
+            private Context context;
+            int totalTabs;
+            public LoginAdapter(FragmentActivity fm, Context context, int totalTabs){
+                super(fm);
+                this.context = context;
+                this.totalTabs = totalTabs;
+            }
+            @Override
+            public int getItemCount() {
+                return totalTabs;
+            }
+
+            public Fragment getItem(int position){
+                switch (position){
+                    case 0:
+                        LoginTabFragment loginTabFragment
+                                = new LoginTabFragment();
+                        return loginTabFragment;
+                    case 1:
+                        SignupTabFragment signupTabFragment
+                                = new SignupTabFragment();
+                        return signupTabFragment;
+                    default:
+                        return null;
+                }
+            }
+            @NonNull
+            @Override
+            public Fragment createFragment(int position) {
+                Fragment frament = getItem(position);
+                return frament;
+            }
+        }
+
+in mainactivity you create tabLayout and viewPage in xml file then in code you implements as below  
+        tabLayout = findViewById(R.id.tab_layout);
+        viewPager = findViewById(R.id.viewpager);
+        tabLayout.addTab(tabLayout.newTab().setText("Login"));
+        tabLayout.addTab(tabLayout.newTab().setText("Signup"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        final LoginAdapter adapter =
+                new LoginAdapter(this,
+                        this,
+                        tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText("OBJECT " + (position + 1))
+        ).attach();
 
 ## animate and change theme
 
