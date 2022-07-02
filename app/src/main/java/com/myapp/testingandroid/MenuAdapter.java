@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
     ArrayList<String> arrayList;
-
     public MenuAdapter(ArrayList<String> arrayList){
             this.arrayList = arrayList;
     }
@@ -23,20 +22,16 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item,parent,false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String t= arrayList.get(position);
         holder.tv.setText(t);
     }
-
     @Override
     public int getItemCount() {
         return arrayList.size();
     }
-
     public static class ViewHolder extends RecyclerView.ViewHolder{
-
         TextView tv;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -25,24 +25,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        tabLayout = findViewById(R.id.tab_layout);
-        viewPager = findViewById(R.id.viewpager);
+
         fb = findViewById(R.id.fab_facebook);
         google = findViewById(R.id.fab_google);
         twitter = findViewById(R.id.fab_twitter);
         btnLogin = findViewById(R.id.button_login);
 
+        tabLayout = findViewById(R.id.tab_layout);
+        viewPager = findViewById(R.id.viewpager);
         tabLayout.addTab(tabLayout.newTab().setText("Login"));
         tabLayout.addTab(tabLayout.newTab().setText("Signup"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-
         final LoginAdapter adapter =
                 new LoginAdapter(this,
                         this,
                         tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
-        //TabLayout tabLayout = view.findViewById(R.id.tab_layout);
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> tab.setText("OBJECT " + (position + 1))
         ).attach();

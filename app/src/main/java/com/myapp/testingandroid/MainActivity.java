@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements ColorSelector.OnC
         setContentView(R.layout.activity_main);
         CustomButton1 bt = findViewById(R.id.bt1);
         bt.setOnClickListener(v->{
-            startActivity(new Intent(this, MainActivityTheme.class));
+            startActivity(new Intent(this,  LoginActivity.class));
             /*new CustomDialog1(this, com.myapp.mylibrary.R.color.green, new CustomDialog1.OnAmbilWarnaListener() {
                 @Override
                 public void onCancel(CustomDialog1 dialog) {

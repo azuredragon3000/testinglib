@@ -83,6 +83,7 @@ public class LoginTabFragment extends Fragment {
         views.add(login);
 
         new AnimationEditText(views).start();
+
         return root;
     }
 }

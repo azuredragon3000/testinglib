@@ -25,17 +25,18 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        recyclerView = findViewById(R.id.rc);
-
         ArrayList<String> arrayList = new ArrayList<>();
         for(int i=0;i<1000;i++){
             arrayList.add("this is item #"+i);
         }
+
+        recyclerView = findViewById(R.id.rc);
         MenuAdapter myAdapter = new MenuAdapter(arrayList);
         recyclerView.setAdapter(myAdapter);
-
         LinearLayoutManager linearLayout = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayout);
+
+
 
         TextView tv = findViewById(R.id.tv);
         tv.setOnClickListener(v->{
@@ -49,7 +50,6 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.inflate(R.menu.menu_example);
         popup.show();
         ;
-
     }
 
     @Override
@@ -62,7 +62,6 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @SuppressLint({"NonConstantResourceId", "ShowToast"})
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()){
             case R.id.new_game:
                 Toast.makeText(this,"new game",Toast.LENGTH_LONG).show();
@@ -73,11 +72,7 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             default:
                 return super.onOptionsItemSelected(item);
         }
-
-
-
     }
-
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
@@ -92,6 +87,5 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             default:
                 return false;
         }
-
     }
 }

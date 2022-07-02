@@ -8,17 +8,13 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class LoginAdapter extends FragmentStateAdapter {
-
     private Context context;
     int totalTabs;
-
     public LoginAdapter(FragmentActivity fm, Context context, int totalTabs){
         super(fm);
         this.context = context;
         this.totalTabs = totalTabs;
     }
-
-
     @Override
     public int getItemCount() {
         return totalTabs;
@@ -38,14 +34,11 @@ public class LoginAdapter extends FragmentStateAdapter {
                 return null;
         }
     }
-
     @NonNull
     @Override
     public Fragment createFragment(int position) {
         Fragment frament = getItem(position);
         return frament;
     }
-
-
 }
 
