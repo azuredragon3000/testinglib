@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements ColorSelector.OnC
         setContentView(R.layout.activity_main);
         CustomButton1 bt = findViewById(R.id.bt1);
         bt.setOnClickListener(v->{
-            startActivity(new Intent(this,  LoginActivity.class));
+            startActivity(new Intent(this,  MenuActivity.class));
             /*new CustomDialog1(this, com.myapp.mylibrary.R.color.green, new CustomDialog1.OnAmbilWarnaListener() {
                 @Override
                 public void onCancel(CustomDialog1 dialog) {
