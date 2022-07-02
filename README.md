@@ -47,8 +47,8 @@ to create Recycle view we have a Adapter
                 }
     });
   
-  how to check editext is wrongly input
-  String email = et_email.getText().toString();
+  how to check editext is wrongly input  
+        String email = et_email.getText().toString();
         String password = et_pass.getText().toString();
 
         if(TextUtils.isEmpty(email)){
