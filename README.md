@@ -227,6 +227,258 @@ in mainactivity you create tabLayout and viewPage in xml file then in code you i
         ).attach();
 
 ## animate and change theme
+this is special source help you animate ball button  
+layout  
+
+        <?xml version="1.0" encoding="utf-8"?>
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivityTheme">
+
+            <View
+                android:id="@+id/holderbg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <View
+                android:id="@+id/dynamicbg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="2dp"
+                android:scaleX="0"
+                android:scaleY="0"
+                android:layout_marginBottom="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:elevation="7dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="44dp"
+                android:text="Choose Your Mood"
+                android:textColor="#FFF"
+                android:textSize="28sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_horizontal"
+                android:elevation="7dp"
+                android:lineSpacingExtra="6dp"
+                android:text="Theme is still able to change \nunder in the setting  "
+                android:textAlignment="center"
+                android:textColor="#3c000000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btngreen"
+                android:layout_width="73dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/btngreen"
+                android:elevation="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnblue"
+                android:layout_width="73dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/btnblue"
+                android:elevation="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btngreen" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnorange"
+                android:layout_width="73dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/btnorange"
+                android:elevation="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnblue" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnpurple"
+                android:layout_width="73dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/btnred"
+                android:elevation="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnorange" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnsave"
+                android:elevation="7dp"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="52dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bgwhite"
+                android:text="Save Now"
+                android:textAllCaps="false"
+                android:textColor="#1abc9c"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+source  
+
+        public class MainActivityTheme extends AppCompatActivity {
+            TextView textView1,textView2;
+            Button btngreen,btnblue,btnpurple,btnorange, btnsave;
+            View holderbg, dynamicbg;
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activitytheme);
+                btnsave = findViewById(R.id.btnsave);
+                textView1 = findViewById(R.id.textView);
+                textView2 = findViewById(R.id.textView2);
+                btngreen = findViewById(R.id.btngreen);
+                btnblue = findViewById(R.id.btnblue);
+                btnpurple = findViewById(R.id.btnpurple);
+                btnorange = findViewById(R.id.btnorange);
+                holderbg = findViewById(R.id.holderbg);
+                dynamicbg = findViewById(R.id.dynamicbg);
+                holderbg.setBackgroundResource(R.drawable.bggreen);
+                holderbg.setScaleX(3);
+                holderbg.setScaleY(3);
+                btngreen.setScaleY(1.5f);
+                btngreen.setScaleX(1.5f);
+                btnblue.setOnClickListener(v->{
+                    btnblue.animate().translationY(20).scaleX(1.5f)
+                            .scaleY(1.5f).setDuration(800).start();
+                    btngreen.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    btnpurple.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    btnorange.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    dynamicbg.setBackgroundResource(R.drawable.bgblue);
+                    dynamicbg.animate().scaleX(3).scaleY(3).setDuration(800).start();
+                    btnsave.setTextColor(Color.parseColor("#3498db"));
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            holderbg.setScaleX(3);
+                            holderbg.setScaleY(3);
+                            holderbg.setBackgroundResource(R.drawable.bgblue);
+                            dynamicbg.setScaleX(0);
+                            dynamicbg.setScaleY(0);
+                        }
+                    },850);
+                });
+                btngreen.setOnClickListener(v->{
+                    btngreen.animate().scaleX(1.5f)
+                            .scaleY(1.5f).setDuration(800).start();
+                    btnblue.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    btnpurple.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    btnorange.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    dynamicbg.setBackgroundResource(R.drawable.bggreen);
+                    dynamicbg.animate().scaleX(3).scaleY(3).setDuration(800).start();
+                    btnsave.setTextColor(Color.parseColor("#1bac9c"));
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            holderbg.setScaleX(3);
+                            holderbg.setScaleY(3);
+                            holderbg.setBackgroundResource(R.drawable.bggreen);
+                            dynamicbg.setScaleX(0);
+                            dynamicbg.setScaleY(0);
+                        }
+                    },850);
+                });
+                btnorange.setOnClickListener(v->{
+                    btnorange.animate().scaleX(1.5f)
+                            .scaleY(1.5f).setDuration(800).start();
+                    btnblue.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    btnpurple.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    btngreen.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    dynamicbg.setBackgroundResource(R.drawable.bggorange);
+                    dynamicbg.animate().scaleX(3).scaleY(3).setDuration(800).start();
+                    btnsave.setTextColor(Color.parseColor("#1bac9c"));
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            holderbg.setScaleX(3);
+                            holderbg.setScaleY(3);
+                            holderbg.setBackgroundResource(R.drawable.bggorange);
+                            dynamicbg.setScaleX(0);
+                            dynamicbg.setScaleY(0);
+                        }
+                    },850);
+                });
+                btnpurple.setOnClickListener(v->{
+                    btnpurple.animate().scaleX(1.5f)
+                            .scaleY(1.5f).setDuration(800).start();
+                    btnblue.animate().translationY(0).scaleX(1).scaleY(1).setDuration(350).start();
+                    btngreen.animate().scaleX(1).scaleY(1).setDuration(350).start();
+                    btnorange.animate().scaleX(1).scaleY(1).setDuration(350).start();
+                    dynamicbg.setBackgroundResource(R.drawable.bgpurple);
+                    dynamicbg.animate().scaleX(3).scaleY(3).setDuration(800).start();
+                    btnsave.setTextColor(Color.parseColor("#1bac9c"));
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            holderbg.setScaleX(3);
+                            holderbg.setScaleY(3);
+                            holderbg.setBackgroundResource(R.drawable.bgpurple);
+                            dynamicbg.setScaleX(0);
+                            dynamicbg.setScaleY(0);
+                        }
+                    },850);
+                });
+            }
+        }
+
 
 ## asyn task + progressbar
 
