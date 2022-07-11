@@ -588,7 +588,7 @@ Với ListView việc sử dụng divider không được linh hoạt nhưng v�
   
 ListView có support các phương thức phương thức setOnItemClickListener và setOnLongItemListener để chọn 1 item trong ListView. Nhưng RecylerView chỉ support một phương thức đó là onItemTouchListener.  
 
-##Các thành phần khi sử dụng RecyclerView 
+## Các thành phần khi sử dụng RecyclerView 
 
 Cũng giống như ListView thì đây là thành phần xử lý data collecion (dữ liệu kiểu danh sách) và bind (gắn) những dữ liệu này lên các Item của RecyclerView.
   
