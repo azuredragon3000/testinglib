@@ -574,7 +574,40 @@ remember import this import com.pnikosis.materialishprogress.ProgressWheel;
 in gradle implementation 'com.pnikosis:materialish-progress:1.7'  
 
 # list view and RecycleView
-## list view is more actively with recycle view, recycle view is the next version of listview  
-## recycle view using viewholder and listview is not use , ther are no use findviewbyid 
+  
+  
+Yêu cầu sử dụng ViewHolder Pattern trong Adapter: Với ListView chúng ta không cần sử dụng ViewHolder pattern để cải thiện performance của ListView nhưng ngược lại khi chúng ta tạo một Adapter sử dụng với RecyclerView bắt buộc phải sử dụng ViewHolder để cải thiện performance.
+  
+Mục đích sử dụng ViewHolder để tái sử dụng View nhằm tránh việc tạo View mới và findViewById quá nhiều
+  
+ListView chỉ support cho chúng ta danh sách dạng scroll dọc. Nhưng với RecylerView cung cấp cho chúng ta RecyclerView.LayoutManager cho phép Layout các item trong listView theo các kiểu khác nhau (ngang, dọc, dạng grid, dạng staggered grid).
+  
+Với ListView việc xử lý animation cho các item trong ListView không hề dễ dàng. Nhưng đối với RecyclerView có hổ trợ ItemAnimator giúp chúng ta có thể xử lý animation khi add hay remove một item ra khỏi Recycler một cách dễ dàng. Mặc định RecyclerView sử dụng DefaulItemAnimtor.  
+  
+Với ListView việc sử dụng divider không được linh hoạt nhưng với RecylerView có hỗ trợ ItemDecoration cho phép chúng ta draw divider một cách tuỳ thích.
+  
+ListView có support các phương thức phương thức setOnItemClickListener và setOnLongItemListener để chọn 1 item trong ListView. Nhưng RecylerView chỉ support một phương thức đó là onItemTouchListener.  
+
+##Các thành phần khi sử dụng RecyclerView 
+
+Cũng giống như ListView thì đây là thành phần xử lý data collecion (dữ liệu kiểu danh sách) và bind (gắn) những dữ liệu này lên các Item của RecyclerView.
+  
+Khi tạo custom Adapter chúng ta phải override lại hai phương thức chính là
+  
+**onCreateViewHolder:**Phương thức dùng để tạo view mới cho RecyclerView. Nếu RecyclerView đã cached lại View thì phương thức này sẽ không gọi.
+  
+onBindViewHolder: Phương thức này dùng để gắn data và view  
+  
+LayoutManager  
+Là thành phần có chức năng sắp xếp các item trong RecylerView. Các item scroll dọc hay ngang phụ thuộc chúng ta set LayoutManager này cho RecyclerView.  
+Các class con của LayoutManager:  
+Là thành phần có chức năng sắp xếp các item trong RecylerView. Các item scroll dọc hay ngang phụ thuộc chúng ta set LayoutManager này cho RecyclerView.  
+Các class con của LayoutManager: LinenarLayoutManager: Hỗ trợ scroll các item theo chiều ngang hay chiều dọc.  
+GridLayoutManager: Layout các item trong RecyclerView dưới dạng Grid giống như khi chúng ta sử dụng GridView.  
+StaggerdGridLayoutManager: Layout cá item trong ListView dưới dạng Grid so le.  
+ItemAnimator: Là thành phần hỗ trợ animation khi chúng ta add hay remove một item ra khỏi RecyclerView. Tôi sẽ hướng dẫn chi tiết về ItemAnimator trong bài viết sau. Để tìm hiểu rõ phần này tôi gọi ý cho các bạn là nên tìm hiểu các class sau  
+ItemAnimator: Là class đại diện, khung sườn của animation trong RecyclerView.  
+SimpleItemAnimator: class wrapper lại ItemAnimator.  
+DefaultItemAnimtor: class xử lý animtion mặc định sử dụng trong RecyclerView.  
 
 
