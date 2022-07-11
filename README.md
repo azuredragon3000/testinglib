@@ -657,10 +657,10 @@ DefaultItemAnimtor: class xử lý animtion mặc định sử dụng trong Recy
                 }
             };
             
-       pass to Adapter
+       //pass to Adapter
       AdapterRecycleView customAdapter2 = new AdapterRecycleView(this,birdList,listener);      
       
-      in Adapter implement OnclickListener
+    in Adapter implement OnclickListener
       
               @Override
             public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
