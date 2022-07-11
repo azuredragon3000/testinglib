@@ -620,3 +620,60 @@ DefaultItemAnimtor: class xử lý animtion mặc định sử dụng trong Recy
   in android Gridview is a view groupd that display items in 2 dimentional scrolling grid ( rows and columns)  
   note in grid view: numColumns property has to be specified otherwise gridview behaves like a listview with just singlechoise, if we set it to auto_fit then it automatically display as many column as possible to fill the available space of the screen.  
   
+# RecycleView GridView ListView -- onClickListener
+  for gridview its simple put this snapcode in MainActivity  
+  
+
+          gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // set an Intent to Another Activity
+                        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                        intent.putExtra("image", logos[position]); // put image data in Intent
+                        startActivity(intent); // start Intent
+                    }
+                });
+   
+   
+   but for Recycle view we have to implement more complex  
+   first we create interface  
+   
+     
+          public interface ClickListener {
+
+            public void click(int index);
+        }
+        
+          
+  
+  create this interface and pass it to Adapter of Recycle view  
+  
+  in MainActivity implement listener  
+  
+      ClickListener listener = new ClickListener() {
+                @Override
+                public void click(int index) {
+                    Toast.makeText(getApplicationContext(), "clicked item index is " + index, Toast.LENGTH_LONG).show();
+                }
+            };
+            
+       pass to Adapter
+      AdapterRecycleView customAdapter2 = new AdapterRecycleView(this,birdList,listener);      
+      
+      in Adapter implement OnclickListener
+      
+              @Override
+            public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
+                final int index = holder.getAdapterPosition();
+                holder.tv.setText(items.get(position).getId());
+                holder.im.setImageResource(items.get(position).getLogo());
+                holder.v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        clickListener.click(index);
+                    }
+                });
+            }
+            
+            
