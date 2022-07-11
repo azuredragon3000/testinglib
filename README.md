@@ -483,7 +483,7 @@ source
 
 
 ## asyn task + progressbar
-
+![Alt Text](https://github.com/azuredragon3000/testinglib/blob/master/image/backgroundtask.gif)  
 if you want to perfrom task in background and use progressbar to show the status please implement as below  
 currently doInBackground is deprecated but i will update later  
 
@@ -572,5 +572,9 @@ source
 
 remember import this import com.pnikosis.materialishprogress.ProgressWheel;  
 in gradle implementation 'com.pnikosis:materialish-progress:1.7'  
+
+# list view and RecycleView
+## list view is more actively with recycle view, recycle view is the next version of listview  
+## recycle view using viewholder and listview is not use , ther are no use findviewbyid 
 
 
