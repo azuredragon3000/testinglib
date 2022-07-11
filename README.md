@@ -622,7 +622,7 @@ DefaultItemAnimtor: class xử lý animtion mặc định sử dụng trong Recy
   
   we can use recycleview to create gridview also just implement as below  
   
-  recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
   
   
 # RecycleView GridView ListView -- onClickListener
