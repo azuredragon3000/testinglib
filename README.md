@@ -615,7 +615,7 @@ DefaultItemAnimtor: class xử lý animtion mặc định sử dụng trong Recy
   BaseAdapter is a very generic adapter that allows you to do pretty much whatever you want, however, you have to do a bit  
   more coding yourself to get it working  
   ArrayAdapter is more complete implementation that works well for data in arrays or ArrayList, similarly there is a related CursorAdapter that you should user if your data is in a Cursor, both of these extend BaseAdapter  
-#GridView
+# GridView
   
   in android Gridview is a view groupd that display items in 2 dimentional scrolling grid ( rows and columns)  
   note in grid view: numColumns property has to be specified otherwise gridview behaves like a listview with just singlechoise, if we set it to auto_fit then it automatically display as many column as possible to fill the available space of the screen.  
