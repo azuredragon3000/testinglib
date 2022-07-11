@@ -573,4 +573,8 @@ source
 remember import this import com.pnikosis.materialishprogress.ProgressWheel;  
 in gradle implementation 'com.pnikosis:materialish-progress:1.7'  
 
+# list view and RecycleView
+## list view is more actively with recycle view, recycle view is the next version of listview  
+## recycle view using viewholder and listview is not use , ther are no use findviewbyid 
+
 
