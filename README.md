@@ -620,6 +620,11 @@ DefaultItemAnimtor: class xử lý animtion mặc định sử dụng trong Recy
   in android Gridview is a view groupd that display items in 2 dimentional scrolling grid ( rows and columns)  
   note in grid view: numColumns property has to be specified otherwise gridview behaves like a listview with just singlechoise, if we set it to auto_fit then it automatically display as many column as possible to fill the available space of the screen.  
   
+  we can use recycleview to create gridview also just implement as below  
+  
+  recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+  
+  
 # RecycleView GridView ListView -- onClickListener
   for gridview its simple put this snapcode in MainActivity  
   
