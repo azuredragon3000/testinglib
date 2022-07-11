@@ -684,4 +684,6 @@ pass to Adapter
                 });
             }
             
-            
+# understand about listener 
+  
+  actually listener mainly use interface concept, we can image object A has 3 function f1,f2,f3, if you want to call f1 or f2 from other object we can using interface and we can call it with other word is listener
