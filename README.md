@@ -686,4 +686,47 @@ pass to Adapter
             
 # understand about listener 
   
-  actually listener mainly use interface concept, we can image object A has 3 function f1,f2,f3, if you want to call f1 or f2 from other object we can using interface and we can call it with other word is listener
+  actually listener mainly use interface concept, we can image object A has 3 function f1,f2,f3, if you want to call f1 or f2 from other object we can using interface and we can call it anytime object B want, we can call this with other word is listener
+ 
+         Interface listener{
+            click();
+         }
+
+         class A implement listener{
+
+
+            // second way
+            listener C = new listener(){
+                public void click(){
+                    // perform something
+                }
+            }
+
+            A(){
+                new B = B(this,C);
+            }
+
+
+            func1()
+            func2()
+            func3()
+
+            click(){
+                // perform something
+            }
+         }
+
+         class B{
+
+         listener l;
+          listener l2;
+            B(listtener A, listener C){
+                l = A;
+                l2= C;
+            }
+
+            funcB(){
+                l.click();
+                l2.click();
+            }
+         }
